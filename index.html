@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="تكريم طلبة الإعفاء العام - مدينة ألعاب نور المقدادية" />
+  <title>تكريم طلبة الإعفاء العام</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-glow" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo-wrap" title="مدينة ألعاب نور المقدادية">
+          <img class="logo" src="logo.jpg" alt="شعار مدينة ألعاب نور المقدادية" />
+        </div>
+
+        <div class="brand-text">
+          <h1 class="title">تكريم طلبة الإعفاء العام</h1>
+
+        </div>
+      </div>
+
+      <div class="header-badges" aria-hidden="true">
+        <span class="badge">🎡</span>
+        <span class="badge">✨</span>
+        <span class="badge">💜</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="toolbar" aria-label="التنقل بين الأقسام">
+      <button class="tool-btn is-active" type="button" data-target="tab-add">إضافة اسم</button>
+      <button class="tool-btn" type="button" data-target="tab-list">قائمة الأسماء</button>
+    </nav>
+
+    <section id="tab-add" class="card add-card tab" aria-label="إضافة اسم">
+      <h2 class="section-title">إضافة اسم</h2>
+
+      <form id="addForm" class="form" autocomplete="off">
+        <div class="field">
+          <label for="name">الاسم</label>
+          <input id="name" name="name" type="text" inputmode="text" placeholder="مثال: أحمد علي" required maxlength="80" />
+          <div id="nameError" class="field-error" hidden></div>
+        </div>
+
+
+        <div class="form-actions">
+          <button class="btn" type="submit">
+            <span class="btn-icon" aria-hidden="true">➕</span>
+            إضافة
+          </button>
+        </div>
+      </form>
+
+      <div class="helper">
+        <span class="dot" aria-hidden="true"></span>
+        سيتم حفظ البيانات تلقائياً بعد الإضافة وسيتم تحديث الجدول مباشرة.
+      </div>
+    </section>
+
+    <section id="tab-list" class="card list-card tab" aria-label="قائمة الأسماء">
+      <div class="list-head">
+        <h2 class="section-title">قائمة الأسماء</h2>
+
+        <div class="meta" aria-live="polite">
+          <span id="countText" class="count">0 طالب</span>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <span class="search-icon" aria-hidden="true">🔎</span>
+        <input id="search" class="search" type="text" placeholder="ابحث بالاسم..." autocomplete="off" />
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="جدول الأسماء">
+        <table class="table" aria-describedby="search">
+          <thead>
+            <tr>
+          <th>الاسم</th>
+              <th class="actions-col">إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- rows injected by JS -->
+          </tbody>
+        </table>
+
+        <div id="emptyState" class="empty" hidden>
+          لا توجد نتائج.
+        </div>
+      </div>
+    </section>
+
+    <section class="card footer-card" aria-label="إجراءات">
+      <div class="footer-row">
+        <button id="clearBtn" class="btn btn-danger" type="button" title="حذف جميع البيانات">
+          <span class="btn-icon" aria-hidden="true">🗑️</span>
+          حذف الكل
+        </button>
+
+        <div class="small-note">
+          يتم الحفظ عبر LocalStorage على هذا الجهاز.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <div class="toast-inner">
+      <span id="toastText">تمت الإضافة بنجاح</span>
+      <button id="toastClose" class="toast-close" type="button" aria-label="إغلاق">✕</button>
+    </div>
+  </div>
+
+  <script src="preload-names.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
+
+
